@@ -5,11 +5,17 @@ import UserSignup from "./UserSignup";
 const UserLogin = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState('')
+    const [userData, setUserData] = useState({})
 
     const submitHandler = (e) => {
         e.preventDefault();
-        setEmail('');
-        setPassword('');
+        setUserData({
+          email: email,
+          password: password,
+        });
+        
+        setEmail('')
+        setPassword('')
     }
   return (
     <div className="p-7 h-[100vh] flex flex-col justify-between">
@@ -59,9 +65,9 @@ const UserLogin = () => {
       </div>
 
       <div>
-        <button className="bg-[#22a9ca] text-white font-semibold mb-7 rounded px-4 py-2 w-full text-lg placeholder:text-base">
+        <Link to="/captain-login" className="bg-[#22a9ca] flex items-center justify-center text-white font-semibold mb-5 rounded px-4 py-2 w-full text-lg placeholder:text-base">
           Sign In as Captain
-        </button>
+        </Link>
       </div>
     </div>
   );
